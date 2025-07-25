@@ -644,6 +644,27 @@ p {
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
 }
+.contact-info a { /* Este seletor afeta QUALQUER link <a> dentro de .contact-info */
+    color: rgba(255, 255, 255, 0.8); /* Cor inicial branca/levemente transparente */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--white); /* Torna totalmente branco ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse (opcional, pode remover) */
+}
+
+/* Se você seguiu a recomendação de adicionar a classe "contact-phone-link" no HTML: */
+.contact-phone-link { /* Este seletor afeta especificamente links com esta CLASSE */
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.contact-phone-link:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
 
 .contact-form-wrapper {
     background: white;
