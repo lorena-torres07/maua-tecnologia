@@ -40,7 +40,7 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     color: var(--gray-800);
-    overflow-x: hidden;
+    overflow-x: hidden; /* Garante que não haja barra de rolagem horizontal */
 }
 
 .container {
@@ -58,8 +58,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 3rem; }
-h2 { font-size: 5rem; }
-h3 { font-size: 2rem; }
+h2 { font-size: 5rem; } /* Será ajustado em media queries */
+h3 { font-size: 2rem; } /* Será ajustado em media queries */
 h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
 h6 { font-size: 1.125rem; }
@@ -137,7 +137,7 @@ p {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
-    font-size: 20px; /* Altere este valor para aumentar ou diminuir o tamanho da fonte */
+    font-size: 20px;
 }
 
 .nav-link:hover {
@@ -232,16 +232,15 @@ p {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 3.5rem; /* Será ajustado em media queries */
     font-weight: 700;
     margin-bottom: 24px;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* Será ajustado em media queries */
     margin-bottom: 32px;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
@@ -296,7 +295,7 @@ p {
 }
 
 .section-header h2 {
-    font-size: 3.5rem;
+    font-size: 3.5rem; /* Será ajustado em media queries */
     margin-bottom: 16px;
     color: #0e2243;
 }
@@ -307,7 +306,7 @@ p {
 }
 
 .section-header h3 {
-    font-size: 2rem;
+    font-size: 2rem; /* Será ajustado em media queries */
     color: var(--gray-600);
 }
 
@@ -318,13 +317,12 @@ p {
     margin-bottom: 80px;
 }
 
-/* --- ALTERAÇÃO 1: Aumentar a largura máxima do contêiner de texto --- */
 .about-text-centered {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 100%; /* Alterado de 800px para 100% */
+    max-width: 100%;
     margin-bottom: 48px;
     gap: 32px;
 }
@@ -357,15 +355,16 @@ p {
 
 .about-images {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Alterado em media query para mobile */
     justify-content: center;
     gap: 16px;
-    max-width: 600px;
+    max-width: 600px; /* Mantido para desktop, mas imagens internas serão flexíveis */
 }
 
 .about-images img {
-    width: 280px;
-    height: 200px;
+    /* REMOVIDO: width: 280px; height: 200px; */
+    max-width: 100%; /* Garante que as imagens não estourem o container */
+    height: auto; /* Mantém a proporção da imagem */
     object-fit: cover;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
@@ -381,7 +380,7 @@ p {
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 48px;
-    font-size: 2.5rem; /* <-- Adicione esta linha para aumentar a fonte */
+    font-size: 2.5rem; /* Será ajustado em media queries */
 }
 
 .process-steps {
@@ -522,7 +521,7 @@ p {
 }
 
 .client-logo-slide {
-    flex: 0 0 200px;
+    flex: 0 0 200px; /* Será ajustado em media queries */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -539,7 +538,8 @@ p {
 }
 
 .client-logo-slide img {
-    max-width: 110%;
+    /* REMOVIDO: max-width: 110%; */
+    max-width: 100%; /* Garante que a imagem não excede o slide */
     max-height: 90px;
     object-fit: contain;
     transition: var(--transition);
@@ -613,7 +613,7 @@ p {
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Será ajustado em media queries */
     gap: 4rem;
 }
 
@@ -660,7 +660,7 @@ p {
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Será ajustado em media queries */
     gap: 1rem;
 }
 
@@ -703,263 +703,7 @@ p {
 }
 
 /* Footer */
-.footer {
-    background: #1e293b;
-    color: white;
-    padding: 60px 0 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-brand h3 {
-    color: #3b82f6;
-    margin-bottom: 1rem;
-}
-
-.footer-brand p {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.footer h4 {
-    color: white;
-    margin-bottom: 1rem;
-}
-
-.footer ul {
-    list-style: none;
-}
-
-.footer ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer ul li a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer ul li a:hover {
-    color: #3b82f6;
-}
-
-.footer-contact p {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.5rem;
-}
-
-.footer-bottom {
-    border-top: 1px solid #374151;
-    padding-top: 2rem;
-    text-align: center;
-}
-
-.footer-bottom p {
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
-}
-
-/* WhatsApp Button */
-.whatsapp-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    }
-    50% {
-        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8);
-    }
-    100% {
-        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    }
-}
-.whatsapp-btn .whatsapp-icon {
-    width: 24px; 
-    height: 24px;
-    object-fit: contain;
-    display: block;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .hero-content {
-        max-width: 90%;
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    /* --- ALTERAÇÃO 2: Regra removida daqui para permitir que o grid se ajuste automaticamente --- */
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 2rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .nav-toggle {
-        display: flex;
-    }
-    
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-    }
-    
-    section {
-        padding: 60px 0;
-    }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
-    h3 { font-size: 1.25rem; }
-    
-    /* --- ALTERAÇÃO 3: Regra também removida daqui --- */
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .service-card,
-    .contact-form-wrapper {
-        padding: 2rem 1.5rem;
-    }
-    
-    .whatsapp-btn {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        right: 15px;
-    }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.section-header,
-.service-card,
-.contact-item {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    
-    .whatsapp-btn {
-        animation: none;
-    }
-}
-
-/* Footer (styles were duplicated, keeping the more complete version) */
+/* Mantido apenas uma versão do footer, a mais completa e responsiva */
 .footer {
     background-color: var(--dark-color);
     color: var(--white);
@@ -968,8 +712,7 @@ p {
 
 .footer-content {
     display: grid;
-    /* Adjusted for better responsiveness */
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Padrão para mobile, ajustado para desktop em media query */
     gap: 48px;
     margin-bottom: 48px;
 }
@@ -1039,4 +782,236 @@ p {
 .animate-on-scroll.animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+.whatsapp-btn .whatsapp-icon {
+    width: 24px; 
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-content {
+        max-width: 90%;
+    }
+    
+    .about-content {
+        /* Permite que o flex-direction padrão funcione para telas maiores que 768px */
+        /* grid-template-columns: 1fr; REMOVIDO pois será 1fr para mobile abaixo de 768px*/
+        gap: 3rem;
+    }
+    
+    .contact-content {
+        /* grid-template-columns: 1fr; REMOVIDO pois será 1fr para mobile abaixo de 768px */
+        gap: 3rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    /* Font Sizes for smaller screens */
+    h1 { font-size: 2.25rem; } /* Ajustado de 3rem para 2.25rem */
+    .hero-title { font-size: 2.5rem; } /* Ajustado de 3.5rem para 2.5rem */
+    h2 { font-size: 2rem; } /* Ajustado de 5rem para 2rem */
+    .section-header h2 { font-size: 2.5rem; } /* Ajustado de 3.5rem para 2.5rem */
+    h3 { font-size: 1.5rem; } /* Ajustado de 2rem para 1.5rem */
+    .process h3 { font-size: 2rem; } /* Ajustado de 2.5rem para 2rem */
+    
+    /* About Images - Stack vertically on smaller screens */
+    .about-images {
+        flex-direction: column;
+        align-items: center; /* Centraliza as imagens empilhadas */
+        max-width: 100%; /* Garante que o container de imagens se adapte */
+    }
+    .about-images img {
+        width: 100%; /* Imagens ocupam a largura total disponível */
+        max-width: 300px; /* Limita o tamanho máximo das imagens empilhadas */
+        height: auto;
+    }
+
+    /* Contact Section - Stack columns */
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .service-card,
+    .contact-form-wrapper {
+        padding: 2rem 1.5rem;
+    }
+    
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Further font size adjustments for very small screens */
+    h1 { font-size: 1.8rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    h2 { font-size: 1.6rem; }
+    .section-header h2 { font-size: 2rem; }
+    h3 { font-size: 1.3rem; }
+    .process h3 { font-size: 1.8rem; }
+
+    /* Clients Carousel - Display one slide at a time on very small screens */
+    .client-logo-slide {
+        flex: 0 0 100%; /* Faz com que cada slide ocupe 100% da largura do container */
+        max-width: 100%; /* Garante que o slide não ultrapasse 100% */
+        box-sizing: border-box; /* Inclui padding e border na largura total */
+    }
+    .clients-carousel-track {
+        gap: 0; /* Remove o gap quando os slides ocupam 100% */
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-header,
+.service-card,
+.contact-item {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .whatsapp-btn {
+        animation: none;
+    }
 }
