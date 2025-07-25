@@ -503,33 +503,110 @@ section {
     font-weight: bold;
 }
 
-/* Clients Section (Automático) */
+/* ========================================================= */
+/* === INÍCIO DO CÓDIGO CORRIGIDO PARA O CARROSSEL MANUAL === */
+/* ========================================================= */
+
+/* Clients Section */
 .clients {
+    padding: 120px 0;
     background-color: var(--light-color);
 }
 
-.scroller {
+.clients-carousel {
+    position: relative;
     max-width: 1000px;
     margin: 0 auto;
-    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
 
-.scroller__inner {
-    padding-block: 1rem;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.scroller[data-animated="true"] {
+.clients-carousel-container {
     overflow: hidden;
+    border-radius: 12px;
 }
 
-.scroller[data-animated="true"] .scroller__inner {
-    width: max-content;
-    flex-wrap: nowrap;
-    animation: scroll 40s forwards linear infinite;
+.clients-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 32px;
+    padding: 24px 0;
 }
+
+.client-logo-slide {
+    flex: 0 0 200px; /* Tamanho do logo em telas grandes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.client-logo-slide:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.client-logo-slide img {
+    max-width: 110%;
+    max-height: 90px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+#logo-ufpe {
+    max-width: 80%;
+    max-height: 60px;
+}
+
+#logo-colegiaame {
+    max-width: 80%;
+    max-height: 60px;
+}
+
+.clients-carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.clients-carousel-btn {
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--white);
+    color: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clients-carousel-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* === AJUSTES DE RESPONSIVIDADE PARA O CARROSSEL MANUAL === */
+@media (max-width: 768px) {
+    .client-logo-slide {
+        flex: 0 0 150px; /* Diminui o tamanho de cada logo no celular */
+        padding: 16px;
+    }
+
+    .clients-carousel-track {
+        gap: 16px; /* Diminui o espaço entre os logos */
+    }
+}
+/* ======================================================= */
+/* === FIM DO CÓDIGO CORRIGIDO PARA O CARROSSEL MANUAL === */
+/* ======================================================= */
 
 @keyframes scroll {
     to {
